@@ -21,7 +21,6 @@ class RegistrationsController < Devise::RegistrationsController
         begin
         
             @payment.process_payment
-            
             @payment.save
             
             rescue Exception => e
