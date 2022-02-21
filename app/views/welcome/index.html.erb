@@ -1,0 +1,44 @@
+
+
+  
+    
+    
+    <div class="jumbotron">
+        <h2>Welcome to the Photo Management App!</h2>
+        <p class="lead">
+        You'll love managing your Photos with our application. Sign up!
+        </p>
+    </div>
+<div class="container">
+    <div class="row">
+        
+        <div class="col" >
+            <h2>Premium Plan</h2>
+            
+            Price: $10 
+            <ul>
+                <li>Unlimited Image Uploads</li>
+                <li>Responsive design</li>
+                <li>Access anywhere</li>
+                <li> <%= link_to 'SignUp', new_user_registration_path, class: 'btn btn-primary sign-up' %></li>
+            </ul>
+            
+        </div>
+
+        <div class="col">
+            <h2>Amaze Plan</h2>
+            Price: $20
+            
+            <ul>
+                <li>Unlimited Image Uploads</li>
+                <li>Responsive design</li>
+                <li>Access anywhere</li>
+                <li class='extra'>Unlimited projects</li>
+              <li><%= link_to 'SignUp', new_user_registration_path, class: 'btn btn-primary sign-up' %></li>
+            </ul>           
+        </div>
+
+    </div>
+</div>
+ 
+

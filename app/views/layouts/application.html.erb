@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MYNewPhotoApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "https://js.stripe.com/v2/" %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Photo  App</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <%= link_to "Edit Profile" , edit_user_registration_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <% if !current_user %>
+      <li class="nav-item ">
+      <%= link_to "Sign in", new_user_session_path, class: "btn btn-success signin" %>
+      </li>
+      <% end %>
+      <% if current_user %>
+      <li class="nav-item">
+      <%= link_to "Log out",destroy_user_session_path, method: :delete, class: "btn btn-danger logout" %>
+      </li>
+      <% end %>
+    </ul>
+    
+
+  </div>
+</nav>
+ <div class="container">
+  
+    <% if notice %>
+    <div class='alert alert-success'>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      <%= notice %>
+    </div>
+    <% end %>
+    <% if alert %>
+    <div class='alert alert-danger'>
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+      <%= alert %>
+    </div>
+    <% end %> 
+    <%= yield %>
+  </div>  
+  </body>
+</html>
